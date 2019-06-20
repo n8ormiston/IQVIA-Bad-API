@@ -1,0 +1,23 @@
+﻿@using BadApiCodingChallenge.Models
+@model BadApiIntegrationModel
+
+<div>
+    <h4>Number of records returned: @Model.AllTweets.Count()</h4>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Date</th>
+            <th>Body</th>
+        </tr>
+        @foreach (TweetModel t in Model.AllTweets)
+        {
+            <tr>
+                <td>@t.Id</td>
+                <td>@t.Stamp.ToString("MM/dd/yyyy HH:mm:ss")</td>
+                <td>@t.Text</td>
+            </tr>
+        }
+    </table>
+</div>
+

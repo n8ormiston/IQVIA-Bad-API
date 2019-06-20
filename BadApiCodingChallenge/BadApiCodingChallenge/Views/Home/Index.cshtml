@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "IQVIA Bad API Coding Challenge";
+}
+
+<div class="jumbotron">
+    <h1>Nathan Ormiston</h1>
+    <p>Relevant files</p>
+    <ul>
+        <li>BadApiIntegration.cs - Model</li>
+        <li>Index.cshtml - View</li>
+        <li>BadApiController.cs - Controller</li>
+        <li>HomeController.cs - Controller</li>
+        <li>_TweetResult.cshtml - Partial View</li>
+        <li>tweetFilter.js - Javascript</li>
+        <li>HomeControllerTest.cs - Tests</li>
+    </ul>
+    <p class="lead">Fill out the date fields and click the "Get Tweets" button.</p>
+</div>
+
+<div class="row">
+    <div class="col-12 text-center">
+
+        <h2>Get Tweets Within a Date Range</h2>
+
+        <div class="form-group">
+            <label for="start-date">Start Date: </label>
+            <input type="date" name="start-date" id="start-date" value="2016-01-01">
+
+            <label for="end-date">End Date: </label>
+            <input type="date" name="end-date" id="end-date" value="2017-12-31">
+
+            <p><a class="btn btn-default" data-action-url="@Url.Action("GetTweets", "BadApi")" id="get-tweets">Get Tweets</a></p>
+        </div>
+    </div>
+    
+    <div id="loading-gif" class="hidden text-center">
+        <img src="~/Content/Sources/loading.gif" />
+    </div>
+
+    <div class="hidden text-center" id="tweet-results"></div>
+
+</div>
+@Scripts.Render("~/bundles/jquery", "~/bundles/bootstrap", "/Scripts/tweetFilter.js")
